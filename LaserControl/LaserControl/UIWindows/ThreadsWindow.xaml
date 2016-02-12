@@ -1,0 +1,8 @@
+﻿<Window x:Class="LaserControl.UIWindows.ThreadsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ThreadsWindow" Height="300" Width="300">
+    <Grid>
+        
+    </Grid>
+</Window>

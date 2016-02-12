@@ -1,0 +1,18 @@
+
+LDSQ
+
+HOME 
+
+ROFIN-532
+
+//Schreibe Y Referenzlinien
+SCR-Y 200 5 5 6 15 90
+
+//Schreibe alle X Linien
+SCR-X 100 5 5 450 0.2 10
+SCR-X 200 5 5 450 0.2 10
+SCR-X 450 5 5 450 0.2 10
+SCR-X 600 5 5 450 0.2 10
+SCR-X 800 5 5 450 0.2 10
+
+UNLDSQ 

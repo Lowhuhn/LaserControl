@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="LaserControl.UIElements.UI_OneAxis"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LaserControl.UIElements"
+             xmlns:Custom="clr-namespace:LaserControl.Design.Custom"
+             mc:Ignorable="d" 
+             d:DesignWidth="800" Height="31">
+    <UserControl.Resources>
+        <local:OneAxisDataHandler x:Key="datahandler" AxisName="Axis" StatusColor="White" StatusStr="Disabled" StatusImg="bullet_white"  JogStr="Speed: 50" 
+                                                      RelPosStr="0.0000" AbsPosStr="0.0000" VelocityStr="0.0000" HasFault="False"
+                                                      FreeRunStr="Speed: 0 mm/sec "/>
+    </UserControl.Resources>
+
+    <Grid DataContext="{DynamicResource datahandler}" ShowGridLines="False">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="30"/>
+
+            <ColumnDefinition Width="100"/>
+
+            <ColumnDefinition Width="170"/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="30"/>
+
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="35"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="35"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="55"/>
+        </Grid.ColumnDefinitions>  
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="1"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="{Binding AxisName}" FontFamily="Consolas" FontSize="20" Margin="0"/>
+
+        <Custom:ImgButton x:Name="EnDisableBtn" ImgToShow="{Binding StatusImg}" Grid.Column="1" Width="26" Height="26" Margin="2" Click="EnDisableBtn_Click" />
+
+        <Custom:ImgButton x:Name="HomeBtn" ImgToShow="house_go" Grid.Column="2" Width="26" Height="26" Margin="2" Click="HomeBtn_Click" />
+
+        <Custom:ImgButton x:Name="ClearFaultBtn" ImgToShow="error" IsEnabled="{Binding HasFault}" Grid.Column="3" Width="26" Height="26" Margin="2" Click="ClearFaultBtn_Click"/>
+
+
+        <Button x:Name="SetSpeedBtn" Content="{Binding FreeRunStr}" Grid.Column="5" Height="26" Margin="2" Click="SetSpeedBtn_Click"/>
+
+        <Custom:ImgButton x:Name="MoveLeftBtn" ImgToShow="resultset_previous_green"  Grid.Column="6" Width="26" Height="26" Margin="2" PreviewMouseDown="MoveLeftBtn_MouseDown" PreviewMouseUp="MoveLeftBtn_MouseUp"/>
+        <Custom:ImgButton x:Name="MoveRightBtn" ImgToShow="resultset_next_green" Grid.Column="7" Width="26" Height="26" Margin="2" PreviewMouseDown="MoveRightBtn_MouseDown" PreviewMouseUp="MoveRightBtn_MouseUp"/>
+        
+        <Label Content="{Binding StatusStr}" 
+               Background="{Binding StatusColor}" 
+               BorderThickness="1"
+               BorderBrush="Black"
+               HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center"
+               Grid.Column="4" Margin="2"/>
+
+        <Label Content="{Binding RelPosStr}" Grid.Column="8" 
+               FontFamily="Consolas" FontSize="20"
+               HorizontalContentAlignment="Right" VerticalContentAlignment="Center" 
+               Margin="0"/>
+        <Label Content="mm" FontFamily="Consolas" FontSize="20" Grid.Column="9"/>
+
+        <Label Content="{Binding AbsPosStr}" 
+               FontFamily="Consolas" FontSize="20"
+               Grid.Column="10" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
+        <Label Content="mm" Grid.Column="11" FontFamily="Consolas" FontSize="20"/>
+
+        <Label Content="{Binding VelocityStr}"
+               FontFamily="Consolas" FontSize="20"
+               Grid.Column="12" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
+        <Label Content="mm/s" Grid.Column="13" FontFamily="Consolas" FontSize="20"/>
+
+        <Rectangle Grid.Row="1" Grid.ColumnSpan="14" Stroke="Black" Fill="Black"/>
+        
+    </Grid>
+</UserControl>

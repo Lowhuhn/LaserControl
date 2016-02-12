@@ -1,0 +1,41 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <ControlTemplate x:Key="TabControlBottom" TargetType="{x:Type TabControl}">
+        <ControlTemplate.Resources>
+            <Style TargetType="{x:Type TabItem}">
+                <Setter Property="OverridesDefaultStyle" Value="True" />
+                <Setter Property="SnapsToDevicePixels" Value="True"/>
+                <Setter Property="Foreground" Value="{DynamicResource TCILRForeground}" />
+                <Setter Property="Template" Value="{DynamicResource TabItemBottom}" />
+            </Style>
+        </ControlTemplate.Resources>
+        <Border x:Name="OuterBorder">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="19"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                
+                <!-- Header, Anzeige TabHeader -->
+                <Border Background="{DynamicResource TCLRHeaderBackground}">
+                    <TextBlock Margin="5,0" 
+                               Text="{Binding SelectedItem.Header, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" 
+                               VerticalAlignment="Center" 
+                               Foreground="{DynamicResource TCLRHeaderForeground}"
+                               SnapsToDevicePixels="True" />
+                </Border>
+
+                <!-- Content -->
+                <Border Grid.Row="1" BorderThickness="0" Background="{DynamicResource TCLRBackground}">
+                    <ContentPresenter ContentSource="SelectedContent" Margin="0"/>
+                </Border>
+
+                <!-- TabPanel -->
+                <TabPanel IsItemsHost="True" Grid.Row="2" Background="{DynamicResource TCLRPanelBackground}"/>
+            </Grid>
+        </Border>
+    </ControlTemplate>
+    
+</ResourceDictionary>

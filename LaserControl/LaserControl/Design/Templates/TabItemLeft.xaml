@@ -1,0 +1,46 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ControlTemplate x:Key="TabItemLeft" TargetType="{x:Type TabItem}" >
+        <Border Margin="0,0,0,5">
+            <Border Background="{DynamicResource TCILRBackground}">
+                <Border.LayoutTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Border.LayoutTransform>
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="6"/>
+                    </Grid.RowDefinitions>
+
+
+                    <ContentPresenter x:Name="TabItemContent" ContentSource="Header" 
+                              RecognizesAccessKey="True" HorizontalAlignment="Center" 
+                              VerticalAlignment="Center" Grid.Column="0"
+                                  UseLayoutRounding="True" SnapsToDevicePixels="True"
+                                  TextOptions.TextFormattingMode="Display"/>
+
+                    <Border x:Name="BorderRectangle" Margin="2,0" 
+                        Background="{DynamicResource TCILRRectBackground}" Grid.Row="1"/>
+
+                </Grid>
+            </Border>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="BorderRectangle" Property="Background" 
+                        Value="{DynamicResource TCILRRectBackgroundIsHighlighted}"/>
+            </Trigger>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter TargetName="BorderRectangle" Property="Background" 
+                        Value="{DynamicResource TCILRRectBackgroundIsSelected}"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+</ResourceDictionary>

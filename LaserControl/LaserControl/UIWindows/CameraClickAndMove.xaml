@@ -1,0 +1,39 @@
+﻿<Window x:Class="LaserControl.UIWindows.CameraClickAndMove"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:LaserControl.UIWindows"
+        xmlns:Custom="clr-namespace:LaserControl.Design.Custom"
+        Title="CameraClickAndMove" Height="800" Width="1024"        
+        Closing="Window_Closing" StateChanged="Window_StateChanged" WindowStartupLocation="CenterScreen" >
+
+    <Window.Resources>
+        <local:CameraClickAndMoveDataHandler x:Key="datahandler"
+                                     />
+    </Window.Resources>
+
+    <Grid DataContext="{DynamicResource datahandler}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>            
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image x:Name="ContentImage" Visibility="{Binding ImageVisible}" Source="{Binding Img}" 
+               PreviewMouseLeftButtonDown="ContentImage_PreviewMouseLeftButtonDown"/>
+
+        <ProgressBar HorizontalAlignment="Stretch" Height="20" VerticalAlignment="Center" Visibility="{Binding ProgbarVisible}"
+                     Minimum="0" Maximum="2000" x:Name="Progress" Value="{Binding ProgbarValue}"/>
+
+        <Grid Grid.Row="1" Visibility="{Binding ButtonsVisible}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Custom:ImgButton x:Name="ResumeBtn" Text="Resume" IsEnabled="{Binding ResumeEnabled}" ImgToShow="Resume_Icon" Grid.Column="1" Height="26" Margin="2" HorizontalAlignment="Right" Click="ResumeBtn_Click" />
+            <Custom:ImgButton x:Name="ManuallyBtn" Text="Manually" ImgToShow="hand_property" Grid.Column="2" Height="26" Margin="2" HorizontalAlignment="Right" Click="ManuallyBtn_Click" />            
+        </Grid>
+    </Grid>
+</Window>

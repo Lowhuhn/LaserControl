@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"    
+                    >
+
+    <!-- 283752 -->
+    <!--<SolidColorBrush  x:Key="Background" Color="#FF343D46" />-->
+    <SolidColorBrush  x:Key="Background" Color="#FF283752" />
+
+
+    <!-- Tab Control Left/Right (Control)-->
+    <SolidColorBrush  x:Key="TCLRPanelBackground" Color="#00FFFFFF" />
+    <SolidColorBrush  x:Key="TCLRHeaderBackground" Color="#FF4D6082" />
+    <SolidColorBrush  x:Key="TCLRHeaderForeground" Color="White" />
+    <!--<SolidColorBrush  x:Key="TCLRBackground" Color="#FFE6E7E8" />-->
+    <SolidColorBrush  x:Key="TCLRBackground" Color="#FFCFD6E5" />
+
+    <!-- Tab Control Left/Right (Item)-->
+    <SolidColorBrush  x:Key="TCILRForeground" Color="White"/>
+    <SolidColorBrush  x:Key="TCILRRectBackground" Color="#FF465A7D" />
+    <SolidColorBrush  x:Key="TCILRRectBackgroundIsHighlighted" Color="#FF9BA7B7" />
+    <SolidColorBrush  x:Key="TCILRRectBackgroundIsSelected" Color="#FF9BA7B7" />
+
+</ResourceDictionary>

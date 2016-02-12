@@ -1,0 +1,31 @@
+﻿<Window x:Class="LaserControl.Startup.HardwareSelector"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Hardware Selector" Height="140" Width="250"
+        Background="{StaticResource Background}"
+        WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="80"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="23"/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Header="Hardware" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200"
+                  BorderBrush="{StaticResource Background}"
+                  Grid.ColumnSpan="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <ComboBox IsReadOnly="True" x:Name="HWSelection" >
+                <Label Content="Api"/>
+                <Label Content="Aerotech"/>
+            </ComboBox>
+        </GroupBox>
+
+        <Button x:Name="OKBtn" Content="Ok" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Height="23" Click="OKBtn_Click" />
+        <Button x:Name="CancelBtn" Content="Cancel" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Width="75" Height="23" Click="CancelBtn_Click" />
+        
+    </Grid>
+</Window>

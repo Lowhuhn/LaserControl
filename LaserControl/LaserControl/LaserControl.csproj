@@ -1,0 +1,561 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A4197844-5973-4DB2-B80E-EB69489D5DC8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LaserControl</RootNamespace>
+    <AssemblyName>LaserControl</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Design\Images\ProgramIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Test\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;TEST</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.AvalonEdit">
+      <HintPath>..\..\..\LaserControl\Needs\ICSharpCode.AvalonEdit.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Design\Custom\AGImage.xaml.cs">
+      <DependentUpon>AGImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Design\Custom\CloseableTabItem.xaml.cs">
+      <DependentUpon>CloseableTabItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Design\Custom\ImgButton.xaml.cs">
+      <DependentUpon>ImgButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Design\Custom\ImgMenuItem.xaml.cs">
+      <DependentUpon>ImgMenuItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Startup\HardwareSelector.xaml.cs">
+      <DependentUpon>HardwareSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Startup\LoadingWindow.xaml.cs">
+      <DependentUpon>LoadingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\TestClass.cs" />
+    <Compile Include="Tests\TestWindow.xaml.cs">
+      <DependentUpon>TestWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIElements\UI_AxesControl.xaml.cs">
+      <DependentUpon>UI_AxesControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Design\Custom\UI_CodeEdit.xaml.cs">
+      <DependentUpon>UI_CodeEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIElements\UI_ErrorControl.xaml.cs">
+      <DependentUpon>UI_ErrorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIElements\UI_HWC_Axes.xaml.cs">
+      <DependentUpon>UI_HWC_Axes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIElements\UI_HWC_IOs.xaml.cs">
+      <DependentUpon>UI_HWC_IOs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIElements\UI_HWC_Tools.xaml.cs">
+      <DependentUpon>UI_HWC_Tools.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIElements\UI_IOControl.xaml.cs">
+      <DependentUpon>UI_IOControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIElements\UI_OneAxis.xaml.cs">
+      <DependentUpon>UI_OneAxis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIElements\UI_OutputControl.xaml.cs">
+      <DependentUpon>UI_OutputControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIWindows\CameraClickAndMove.xaml.cs">
+      <DependentUpon>CameraClickAndMove.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIWindows\Dialogs\Prompts.cs" />
+    <Compile Include="UIWindows\FreeRunSpeed.xaml.cs">
+      <DependentUpon>FreeRunSpeed.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIWindows\HardwareSettings.xaml.cs">
+      <DependentUpon>HardwareSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIWindows\ScriptSettings.xaml.cs">
+      <DependentUpon>ScriptSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIWindows\ThreadsWindow.xaml.cs">
+      <DependentUpon>ThreadsWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Design\Colors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Design\Custom\AGImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Design\Custom\CloseableTabItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Design\Custom\ImgButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Design\Custom\ImgMenuItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Design\Styles\MainMenuItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Design\Styles\TabControls.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Design\Styles\ToolBarSeparator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Design\Templates\MainMenuSeperator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Design\Templates\MainMenuSubMenuHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Design\Templates\MainMenuSubMenuItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Design\Templates\MainMenuTopLevelHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Design\Templates\TabControlBottom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Design\Templates\TabControlLeft.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Design\Templates\TabItemBottom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Design\Templates\TabItemLeft.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Design\Templates\ToolBarSeparator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Startup\HardwareSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Startup\LoadingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Tests\TestWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIElements\UI_AxesControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Design\Custom\UI_CodeEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIElements\UI_ErrorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIElements\UI_HWC_Axes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIElements\UI_HWC_IOs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIElements\UI_HWC_Tools.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIElements\UI_IOControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIElements\UI_OneAxis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIElements\UI_OutputControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIWindows\CameraClickAndMove.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIWindows\FreeRunSpeed.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIWindows\HardwareSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIWindows\ScriptSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIWindows\ThreadsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MainWindowDataHandler.cs" />
+    <Compile Include="MainWindowEventHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\DataSources\System.Drawing.Bitmap.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LaserControl.AerotechHardware\LaserControl.AerotechHardware.csproj">
+      <Project>{69351199-9ab5-4d1e-8390-ec338a2c5473}</Project>
+      <Name>LaserControl.AerotechHardware</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LaserControl.Data\LaserControl.Data.csproj">
+      <Project>{77df4508-9801-4e2b-9b60-ded98f5fff64}</Project>
+      <Name>LaserControl.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LaserControl.HardwareAPI\LaserControl.HardwareAPI.csproj">
+      <Project>{942143bf-1c77-4bef-b285-2ea9f524f0a7}</Project>
+      <Name>LaserControl.HardwareAPI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LaserControl.Library\LaserControl.Library.csproj">
+      <Project>{f8600965-9405-4e09-9ce1-487eae94767a}</Project>
+      <Name>LaserControl.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LaserControl.ScriptV2\LaserControl.ScriptV2.csproj">
+      <Project>{d258faa8-3439-4652-b2c7-6644608901f4}</Project>
+      <Name>LaserControl.ScriptV2</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Design\Images\ProgramIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Design\Images\ProgramIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Design\Images\ProgramIconBig.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Design\Images\StartupImage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NOICON_Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Design\Icons\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_empty.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bullet_green.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bullet_white.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bullet_red.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\house.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\house_go.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 und x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\LaserScriptStyle.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\resultset_next_green.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\resultset_previous_green.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_remove.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pause_Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Run_Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stop_Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StopAll_Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_as.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_multiple.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\no.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\script_add.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Resume_Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Redo_Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Undo_Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\connect.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disconnect.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\textfield_pause.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\textfield_run.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\textfield_stop.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\textfield_resume.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crit_error.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\information.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crit_error_2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png_crit_error_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png_information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue_arrow_down.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue_arrow_left.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue_arrow_left-down.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue_arrow_left-up.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue_arrow_right.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue_arrow_right-down.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue_arrow_right-up.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue_arrow_up.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_rotate_anticlockwise.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_rotate_clockwise.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hand_property.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="LaserControl.UIElements.UI_AxesControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LaserControl.UIElements"
+             xmlns:Custom="clr-namespace:LaserControl.Design.Custom"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="800">
+    
+    <Grid ShowGridLines="False">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="25" x:Name="DistanceCol"/>
+            <ColumnDefinition Width="190" x:Name="RightCol"/>
+        </Grid.ColumnDefinitions>        
+        
+        <Grid x:Name="MainGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            
+        </Grid>
+
+        <Grid x:Name="SideGrid" Grid.Column="2" Visibility="Visible" IsEnabled="False">
+            <Grid.ColumnDefinitions>                
+                <ColumnDefinition Width="35"/>
+                <ColumnDefinition Width="1"/>
+                <ColumnDefinition Width="35"/>
+                <ColumnDefinition Width="1"/>
+                <ColumnDefinition Width="35"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="35"/>
+                <ColumnDefinition Width="5"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="1"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="1"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <Grid Grid.ColumnSpan="9" >
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Custom:ImgButton ImgToShow="bullet_green" Text="0.1 mm" Height="25" Width="75"/>
+                <Custom:ImgButton Grid.Column="1" Grid.Row="0" ImgToShow="bullet_green" Text="1 mm" Height="25" Width="75"/>
+                <Custom:ImgButton Grid.Column="0" Grid.Row="1" ImgToShow="bullet_green" Text="5 mm" Height="25" Width="75"/>
+                <Custom:ImgButton Grid.Column="1" Grid.Row="1" ImgToShow="bullet_green" Text="10 mm" Height="25" Width="75"/>
+            </Grid>
+            
+            <Custom:ImgButton Grid.Column="0" Grid.Row="1" ImgToShow="blue_arrow_left_up" Width="35" Height="35"/>
+            <Custom:ImgButton Grid.Column="2" Grid.Row="1" ImgToShow="blue_arrow_up" Width="35" Height="35"/>
+            <Custom:ImgButton Grid.Column="4" Grid.Row="1" ImgToShow="blue_arrow_right_up" Width="35" Height="35"/>
+
+            <Custom:ImgButton Grid.Column="0" Grid.Row="3" ImgToShow="blue_arrow_left" Width="35" Height="35"/>
+            <Custom:ImgButton Grid.Column="4" Grid.Row="3" ImgToShow="blue_arrow_right" Width="35" Height="35"/>
+
+            <Custom:ImgButton Grid.Column="0" Grid.Row="5" ImgToShow="blue_arrow_left_down" Width="35" Height="35"/>
+            <Custom:ImgButton Grid.Column="2" Grid.Row="5" ImgToShow="blue_arrow_down" Width="35" Height="35"/>
+            <Custom:ImgButton Grid.Column="4" Grid.Row="5" ImgToShow="blue_arrow_right_down" Width="35" Height="35"/>
+
+            <Custom:ImgButton Grid.Column="6" Grid.Row="1" ImgToShow="blue_arrow_up" Width="35" Height="35"/>
+            <Custom:ImgButton Grid.Column="6" Grid.Row="5" ImgToShow="blue_arrow_down" Width="35" Height="35"/>
+
+        </Grid>
+        
+    </Grid>
+    
+</UserControl>

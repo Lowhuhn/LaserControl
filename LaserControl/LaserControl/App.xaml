@@ -1,0 +1,57 @@
+﻿<Application x:Class="LaserControl.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>                               
+                
+                <ResourceDictionary >
+
+                    <SolidColorBrush x:Key="MainMenuBackground" Color="#FFD6DBE9" />
+                    <SolidColorBrush x:Key="MainMenuBackgroundIsHighlighted" Color="#FFFFF0D0" />
+                    <SolidColorBrush x:Key="MainMenuBackgroundIsOpen" Color="#FFE9ECEE" />
+                    <SolidColorBrush x:Key="MainMenuBorder" Color="#FFD6DBE9" />
+                    <SolidColorBrush x:Key="MainMenuBorderIsHighlighted" Color="#FFE5C365" />
+                    <SolidColorBrush x:Key="MainMenuBorderIsOpen" Color="#FF9BA7B7" />
+                    <SolidColorBrush x:Key="MainMenuForeground" Color="#FF000000" />
+                    <LinearGradientBrush x:Key="MainMenuPopupBackground" EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFE9ECEE" Offset="0" />
+                        <GradientStop Color="#FFD0D7E2" Offset="1" />
+                    </LinearGradientBrush>
+                    <SolidColorBrush x:Key="MainMenuPopupBackgroundOfImage" Color="#FFE9ECEE" />
+
+                    <SolidColorBrush x:Key="MainToolBarBorder" Color="#FFDCE0EC" />
+                    <SolidColorBrush x:Key="MainToolBarButtonBackgroundIsClicked" Color="#FFFFE8A6" />
+
+                    <LinearGradientBrush x:Key="ContentDropShadowColor" EndPoint="0.5,1" StartPoint="0.5,0" >
+                        <GradientStop Color="#FFE9ECEE" Offset="0" />
+                        <GradientStop Color="#FFD0D7E2" Offset="1" />
+                    </LinearGradientBrush>
+
+                </ResourceDictionary>
+
+                <ResourceDictionary Source="Design/Colors.xaml"/>
+
+                <ResourceDictionary Source="Design/Styles/MainMenuItem.xaml"/>
+                <ResourceDictionary Source="Design/Styles/TabControls.xaml"/>
+                
+                <ResourceDictionary Source="Design/Templates/MainMenuSubMenuHeader.xaml"/>
+                <ResourceDictionary Source="Design/Templates/MainMenuSubMenuItem.xaml"/>
+                <ResourceDictionary Source="Design/Templates/MainMenuTopLevelHeader.xaml"/>
+                <ResourceDictionary Source="Design/Templates/MainMenuSeperator.xaml"/>
+                
+                <ResourceDictionary Source="Design/Templates/TabControlBottom.xaml"/>
+                <ResourceDictionary Source="Design/Templates/TabControlLeft.xaml"/>
+                <ResourceDictionary Source="Design/Templates/TabItemBottom.xaml"/>
+                <ResourceDictionary Source="Design/Templates/TabItemLeft.xaml"/>
+
+                <ResourceDictionary Source="Design/Templates/ToolBarSeparator.xaml"/>
+                <ResourceDictionary Source="Design/Styles/ToolBarSeparator.xaml"/>
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

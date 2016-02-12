@@ -1,0 +1,48 @@
+﻿<Window x:Class="LaserCameraCSaC.TestUSW.FinalWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1000" >
+    <Grid x:Name="MainGrid" Background="#FF293955">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="22"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Menu>
+            <MenuItem Header="Image">
+                <MenuItem x:Name="imagetype_a" Header="Original" IsCheckable="True"  Click="imagetype_a_Checked"/>
+                <MenuItem x:Name="imagetype_b" Header="Color adjusted" IsCheckable="True"  Click="imagetype_b_Checked"/>
+                <MenuItem x:Name="imagetype_c" Header="Lightening correction" IsCheckable="True" Click="imagetype_c_Checked"/>
+                <MenuItem x:Name="imagetype_d" Header="Threshold image" IsCheckable="True"  Click="imagetype_d_Checked"/>
+                <MenuItem x:Name="imagetype_f" Header="Guessed Cross" IsCheckable="True"  Click="imagetype_f_Checked"/>
+                <MenuItem x:Name="imagetype_e" Header="Edges" IsCheckable="True"  Click="imagetype_e_Checked"/>
+                <Separator />                
+            </MenuItem>
+            <MenuItem Header="Processing Type" >
+                <MenuItem x:Name="pt_camera" Header="No Processing" IsCheckable="True" IsChecked="True" Click="pt_camera_Click" />
+                <MenuItem x:Name="pt_processed" Header="Process Images" IsCheckable="True" IsChecked="False" Click="pt_processed_Click"/>
+            </MenuItem>
+            <MenuItem Header="Overlay">
+                <MenuItem x:Name="CB_0" Header="Threshold" IsCheckable="True"  Click="CB_0_Click"/>
+                <MenuItem x:Name="CB_1" Header="Fixed cross" IsCheckable="True"  Click="CB_1_Click"/>
+                <MenuItem x:Name="CB_2" Header="Detected cross" IsCheckable="True"  Click="CB_2_Click"/>
+            </MenuItem>
+            <MenuItem Header="Parameter" >
+                <MenuItem x:Name="InvThreshold" Header="Invert threshold" IsCheckable="True"  Click="InvThreshold_Click" />
+                <Separator/>
+                <MenuItem x:Name="SliderValue" Header="Threshold: 128" IsEnabled="False"/>
+                <MenuItem Width="400" Background="{x:Null}">
+                    <MenuItem.Header>
+                        <Slider Margin="5" Minimum="0" Maximum="255" SmallChange="1" TickPlacement="BottomRight" TickFrequency="10" Value="128" x:Name="ThresSlider" ValueChanged="ThresSlider_ValueChanged" />
+                    </MenuItem.Header>
+                </MenuItem>
+            </MenuItem>            
+        </Menu>
+        <Image x:Name="DispImage" Grid.Row="1"  Margin="5"/>        
+    </Grid>
+</Window>

@@ -1,0 +1,127 @@
+﻿<?xml version="1.0"?>
+<SyntaxDefinition name="LaserScript" extensions=".lsf" xmlns="http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008">
+
+  <Color name="Comment" foreground="Green" exampleText="// comment" />
+  <Color name="FunctionCall" foreground="MidnightBlue" fontWeight="bold" exampleText="abs(num);"/>
+  <Color name="Keywords" fontWeight="bold" foreground="Blue" exampleText="if (a) {} else {}"/>
+  <Color name="Numbers" foreground="#FF8000" exampleText="3.1415"/>
+  <Color name="HexNumber" foreground="#FF00DC" exampleText="0xFF"/>
+  <Color name="Punctuation" foreground="DarkGreen" exampleText="a(b + c)" />
+  <Color name="Variable" foreground="Black" exampleText="$VARIABLE-198"  />
+  <Color name="String" foreground="Red" exampleText="string text = &quot;Hello, World!&quot;"/>
+
+  <Color name="CALL" foreground="Fuchsia" fontWeight="bold" exampleText="CALLC"/>
+  <Color name="RETURN" foreground="#00FF21" fontWeight="bold" exampleText="return"/>
+  
+  <RuleSet>
+
+    <Rule color="RETURN">
+      ([rR][eE][tT][uU][rR][nN])
+    </Rule>
+    
+    <Rule color="CALL">
+      (
+      ([iI][sS][sS][eE][tT])|
+      ([cC][aA][lL]{2}([cC]|[oO]))|
+      ([iI][nN][tT])|
+      ([dD][oO][uU][bB][lL][eE])
+      )
+    </Rule>
+
+    <!--<Keywords color="CALL">
+      <Word>CALLC</Word>
+      <Word>CALLO</Word>
+      <Word>ISSET</Word>
+      <Word>INT</Word>
+    </Keywords>-->
+    
+    <!--<Keywords color="Keywords">
+      <Word>FALSE</Word>
+      <Word>false</Word>
+      <Word>TRUE</Word>
+      <Word>true</Word>
+    </Keywords>-->
+    <Rule color="Keywords">
+      (
+      ([fF][aA][lL][sS][eE])|
+      ([tT][rR][uU][eE])
+      )
+    </Rule>
+    
+    <!--SelectionStatements
+    <Keywords color="Keywords">
+      <Word>ELSE</Word>
+      <Word>ENDFOR</Word>
+      <Word>ENDIF</Word>
+      <Word>ENDREPEAT</Word>
+      <Word>END-REPEAT</Word>
+      <Word>ENDWHILE</Word>
+      <Word>FOR</Word>
+      <Word>IF</Word>
+      <Word>if</Word>
+      <Word>If</Word>
+      <Word>iF</Word>
+      <Word>REPEAT</Word>
+      <Word>WHILE</Word>
+    </Keywords>-->
+    <Rule color="Keywords">
+      (
+      ([iI][fF])|
+      ([eE][lL][sS][eE])|
+      ([fF][oO][rR])|
+      ([wW][hH][iI][lL][eE])
+      )
+    </Rule>
+    
+
+    <!--Value Type Keywords-->
+    <Keywords color="Keywords">
+      <Word>VAR</Word>
+    </Keywords>
+
+    <!--
+      (\b[A-Z][A-Z0-9-a-z]*(?=\s+\S*))| 
+      ([A-Z][A-Z0-9-a-z]*\()
+    -->
+    <Rule color="FunctionCall">
+      [A-Z][A-Z0-9-a-z]*
+      
+    </Rule>
+
+    <Rule color="HexNumber">
+      0[xX][0-9a-fA-F]+
+    </Rule>
+
+    <Rule color="Numbers">
+      \b\d+(\.[0-9]+)? #number with optional floating point
+    </Rule>
+
+    
+    
+    <Rule color="Punctuation">
+      [?,.:;()\[\]{}+\-/%*&lt;&gt;&amp;^!|~@]+
+    </Rule>
+
+    <Rule color="Variable">
+      \$[A-Za-z][A-Z0-9a-z-]*(?=(\s\S*|))
+    </Rule>
+    
+    <Span color="Comment">
+      <Begin>//</Begin>
+    </Span>
+
+	<!-- STRING -->
+    <Span color="String">
+      <Begin>"</Begin>
+      <End>"</End>
+      <RuleSet>
+        <!-- span for escape sequences -->
+        <Span begin="\\" end="."/>
+      </RuleSet>
+    </Span>
+
+    
+
+  </RuleSet>
+  
+</SyntaxDefinition>

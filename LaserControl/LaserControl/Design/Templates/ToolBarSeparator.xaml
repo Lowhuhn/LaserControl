@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ControlTemplate x:Key="ToolBarSeparatorCT" TargetType="Separator">
+        <Border Width="7" Padding="3" Background="{DynamicResource MainMenuBackground}">
+            <Border Width="1" HorizontalAlignment="Center" Background="{DynamicResource MainMenuBorderIsOpen}" />
+        </Border>
+    </ControlTemplate>
+
+</ResourceDictionary>

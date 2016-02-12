@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="LeftTabControl" TargetType="TabControl">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Template" Value="{DynamicResource TabControlLeft}" />
+        <Setter Property="TabStripPlacement" Value="Left" />
+    </Style>
+
+    <Style x:Key="BottomTabControl" TargetType="TabControl">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Template" Value="{DynamicResource TabControlBottom}" />
+        <Setter Property="TabStripPlacement" Value="Bottom" />
+    </Style>
+
+</ResourceDictionary>
